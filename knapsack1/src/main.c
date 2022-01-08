@@ -22,18 +22,16 @@ int main(int argc, char **argv)
     // 個数の上限はあらかじめ定めておく
     const int max_items = 100;
 
-    const int n = load_int(argv[1]);
-    assert(n <= max_items); // assert で止める
-    assert(n > 0);          // 0以下も抑止する
+    char *filename = argv[1];
 
     const double W = load_double(argv[2]);
     assert(W >= 0.0);
 
-    printf("max capacity: W = %.f, # of items: %d\n", W, n);
+    Itemset *items = load_itemset(filename);
+    assert(items->number <= max_items);
+    printf("max capacity: W = %.f, # of items: %ld\n", W, items->number);
 
     // 乱数シードを1にして、初期化 (ここは変更可能)
-    int seed = 1;
-    Itemset *items = init_itemset(n, seed);
     print_itemset(items);
 
     // ソルバーで解く

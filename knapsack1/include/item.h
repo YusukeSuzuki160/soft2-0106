@@ -1,21 +1,23 @@
 #pragma once
+#include <stddef.h>
 
 // 構造体 Item
 // 価値valueと重さweightが格納されている
 
-typedef struct item {
-    double value;
-    double weight;
+typedef struct item
+{
+  double value;
+  double weight;
 } Item;
 
 // 構造体 Item
 // 価値valueと重さweightが格納されている
 // Itemポインタをmallocする必要あり
-typedef struct itemset {
+typedef struct itemset
+{
   size_t number;
   Item *item;
 } Itemset;
-
 
 // Itemsetを初期化し、そのポインタを返す関数
 // 乱数シードを第2引数にとる
@@ -36,9 +38,8 @@ double get_itemweight(Item item);
 // Item の Valueを取得
 double get_itemvalue(Item item);
 
-//ファイルからItemsetを設定 [未実装, 課題1] 
+//ファイルからItemsetを設定 [未実装, 課題1]
 Itemset *load_itemset(char *filename);
 
-//Itemsetのパラメータを記録したバイナリファイルを出力する関数 [未実装, テスト用]
-void save_itemset(char *filename);
-
+// Itemsetのパラメータを記録したバイナリファイルを出力する関数 [未実装, テスト用]
+void save_itemset(char *filename, Itemset *list);

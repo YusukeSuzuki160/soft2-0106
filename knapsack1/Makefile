@@ -12,7 +12,7 @@ SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(SRCS:%.c=%.o)
 
 
-TARGET = $(BINDIR)/knapsack
+TARGET = $(BINDIR)/knapsack1
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
